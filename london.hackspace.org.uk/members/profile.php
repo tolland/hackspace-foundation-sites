@@ -41,7 +41,7 @@ if ($user && $user->getMemberNumber() == $this_user->getMemberNumber()) {
 $desc = '';
 require('../header.php');
 
-ensureLogin();
+ensureLogin('members_profile');
 
 if(
 	(($user->isMember() && $this_user->isMember())

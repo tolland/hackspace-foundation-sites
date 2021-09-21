@@ -5,6 +5,18 @@ require('header.php');
 if ($user) {
     fURL::redirect('/members');
 }
+
+/*
+ * provide a fixed list of keys and destinations for post login redirection
+ */
+$forwardingTokenMap = [
+    'members'         => '/members',
+    'members_faces'   => '/members/faces.php',
+    'members_members' => '/members/members.php',
+    'members_profile' => '/members/profile.php',
+];
+
+
 ?>
 <h2>Login</h2>
 <?php

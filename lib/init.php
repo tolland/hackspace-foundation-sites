@@ -35,10 +35,21 @@ if ($uid = fSession::get('user')) {
     $user = null;
 }
 
+function filterRedirects($path) {
+
+  $path = parse_url($url, PHP_URL_PATH);
+  $query = parse_url($url, PHP_URL_QUERY);
+  $fragment = parse_url($url, PHP_URL_FRAGMENT);
+
+  return $path;
+
+}
+
 function ensureLogin() {
   global $user;
   if (!isset($user)) {
-        fURL::redirect("/login.php?forward={$_SERVER['REQUEST_URI']}");
+        $forward=filterRedirects($_SERVER['REQUEST_URI']);
+        fURL::redirect("/login.php?forward=$forward");
   }
 }
 

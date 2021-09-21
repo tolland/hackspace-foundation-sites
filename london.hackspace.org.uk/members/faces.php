@@ -2,7 +2,7 @@
 $page = 'faces';
 require( '../header.php' );
 
-ensureLogin();
+ensureLogin('members_faces');
 
 if($user->isMember()) {
     $newUsersCount = 0;

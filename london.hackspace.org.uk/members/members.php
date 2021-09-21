@@ -3,7 +3,7 @@ $page = 'memberslist';
 $title = "Members";
 require( '../header.php' );
 
-ensureLogin();
+ensureLogin('members_members');
 
 $last = $db->query('SELECT max(date(timestamp)) FROM lhspayments_payment')->fetchScalar();
 $include_unsubscribed = ($user->isAdmin() && isset($_GET['unsubscribed']) && $_GET['unsubscribed'] == 'on') ? true : false;
